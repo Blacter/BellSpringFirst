@@ -9,12 +9,12 @@ import lombok.Data;
 public class LoginPasswordDateData {
     private String login;
     private String password;
-    private String currentDate;
+    private String date;
 
     private LoginPasswordDateData(String login, String password){
         this.login = login;
         this.password = password;
-        this.currentDate = getCurrentDateTime();
+        this.date = getCurrentDateTime();
     }
 
     public static LoginPasswordDateData fromLoginPasswordData(LoginPasswordData loginPasswordData){

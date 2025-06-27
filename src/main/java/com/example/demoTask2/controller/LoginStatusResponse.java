@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demoTask2.Config;
 import com.example.demoTask2.controller.data.LoginStatusBean;
+import com.example.demoTask2.util.ResponseDelay;
 
 @RestController
 @RequestMapping(path="/", produces="application/json")
@@ -18,6 +19,7 @@ public class LoginStatusResponse {
         loginStatusBean.setLogin("Login1");
         loginStatusBean.setStatus("ok");
 
+        ResponseDelay.doRandomDelay(Config.FROM_MILLISECONDS_DELAY, Config.TO_MILLISECONDS_DELAY);
         return loginStatusBean;
     }
 }

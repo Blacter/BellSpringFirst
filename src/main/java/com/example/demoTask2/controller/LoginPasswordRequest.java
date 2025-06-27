@@ -1,5 +1,7 @@
 package com.example.demoTask2.controller;
 
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +13,17 @@ import com.example.demoTask2.controller.data.LoginPasswordDateData;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demoTask2.Config;
+import com.example.demoTask2.util.ResponseDelay;
 
 
 
 @RestController
 @RequestMapping(path="/", produces="application/json")
 @CrossOrigin(origins="*")
-public class LoginPasswordRequest {
+public class LoginPasswordRequest  {
     @PostMapping(Config.POST_LOGIN_PASSWORD_DATE_PATH)
-    public LoginPasswordDateData postLoginPassword(@RequestBody LoginPasswordData loginPasswordData){
+    public LoginPasswordDateData postLoginPassword(@RequestBody LoginPasswordData loginPasswordData){        
+        ResponseDelay.doRandomDelay(Config.FROM_MILLISECONDS_DELAY, Config.TO_MILLISECONDS_DELAY);
         return LoginPasswordDateData.fromLoginPasswordData(loginPasswordData);
     }
 }

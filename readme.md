@@ -25,7 +25,7 @@ POST "/post_login_password_date"
 {
     "login": "some_login",
     "password": "some_password",
-    "currentDate": "yyyy-MM-dd HH:mm:ss"
+    "date": "yyyy-MM-dd HH:mm:ss"
 }
 ```
 
