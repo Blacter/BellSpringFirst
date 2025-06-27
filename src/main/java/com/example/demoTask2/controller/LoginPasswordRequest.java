@@ -10,13 +10,15 @@ import com.example.demoTask2.controller.data.LoginPasswordDateData;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.example.demoTask2.Config;
+
 
 
 @RestController
 @RequestMapping(path="/", produces="application/json")
 @CrossOrigin(origins="*")
 public class LoginPasswordRequest {
-    @PostMapping("/")
+    @PostMapping(Config.POST_LOGIN_PASSWORD_DATE_PATH)
     public LoginPasswordDateData postLoginPassword(@RequestBody LoginPasswordData loginPasswordData){
         return LoginPasswordDateData.fromLoginPasswordData(loginPasswordData);
     }
