@@ -15,11 +15,18 @@ import com.example.demoTask2.util.ResponseDelay;
 public class LoginStatusResponse {
     @GetMapping(Config.GET_LOGIN_STATUS_PATH)
     public LoginStatusBean get(){
+        outRequestPath();
         LoginStatusBean loginStatusBean = new LoginStatusBean();
         loginStatusBean.setLogin("Login1");
         loginStatusBean.setStatus("ok");
 
         ResponseDelay.doRandomDelay(Config.FROM_MILLISECONDS_DELAY, Config.TO_MILLISECONDS_DELAY);
         return loginStatusBean;
+    }
+
+    private void outRequestPath(){
+        if (Config.IS_PRINT_REQUEST_PATH){
+            System.out.print(Config.GET_LOGIN_STATUS_PATH + " ");
+        }
     }
 }
